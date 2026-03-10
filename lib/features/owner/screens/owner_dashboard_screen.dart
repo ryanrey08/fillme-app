@@ -20,8 +20,15 @@ class _OwnerDashboardScreenState extends ConsumerState<OwnerDashboardScreen> {
   @override
   void initState() {
     super.initState();
+    debugPrint('[OwnerDashboard] initState called');
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(realtimeOwnerProvider.notifier).loadDashboard();
+      debugPrint('[OwnerDashboard] postFrameCallback executing...');
+      try {
+        ref.read(realtimeOwnerProvider.notifier).loadDashboard();
+        debugPrint('[OwnerDashboard] loadDashboard() called');
+      } catch (e) {
+        debugPrint('[OwnerDashboard] loadDashboard() error: $e');
+      }
       ref.read(realtimeOwnerProvider.notifier).loadOrders();
       ref.read(realtimeOwnerProvider.notifier).loadDrivers();
     });

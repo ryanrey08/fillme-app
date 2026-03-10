@@ -428,21 +428,39 @@ class StationDashboard {
 
   factory StationDashboard.fromJson(Map<String, dynamic> json) {
     final analytics = json['analytics'] as Map<String, dynamic>? ?? {};
+    
+    // Helper to parse double from either num or String
+    double parseDouble(dynamic value) {
+      if (value == null) return 0.0;
+      if (value is num) return value.toDouble();
+      if (value is String) return double.tryParse(value) ?? 0.0;
+      return 0.0;
+    }
+    
+    // Helper to parse int from either num or String
+    int parseInt(dynamic value) {
+      if (value == null) return 0;
+      if (value is int) return value;
+      if (value is num) return value.toInt();
+      if (value is String) return int.tryParse(value) ?? 0;
+      return 0;
+    }
+    
     return StationDashboard(
       // API returns 'today_sales', map to todayRevenue
-      todayRevenue: (json['today_sales'] ?? analytics['today_revenue'] ?? json['today_revenue'] as num?)?.toDouble() ?? 0,
-      todayOrders: json['today_orders'] as int? ?? analytics['today_orders'] as int? ?? 0,
+      todayRevenue: parseDouble(json['today_sales'] ?? analytics['today_revenue'] ?? json['today_revenue']),
+      todayOrders: parseInt(json['today_orders'] ?? analytics['today_orders']),
       // API returns 'orders_to_approve', map to pendingOrders
-      pendingOrders: json['orders_to_approve'] as int? ?? json['pending_orders'] as int? ?? 0,
-      activeOrders: json['active_orders'] as int? ?? 0,
+      pendingOrders: parseInt(json['orders_to_approve'] ?? json['pending_orders']),
+      activeOrders: parseInt(json['active_orders']),
       // API returns 'active_drivers', map to availableDrivers
-      availableDrivers: json['active_drivers'] as int? ?? json['available_drivers'] as int? ?? 0,
-      lowStockItems: json['low_stock_items'] as int? ?? 0,
-      openIssues: json['open_issues'] as int? ?? 0,
-      weekRevenue: (analytics['week_revenue'] ?? json['week_revenue'] as num?)?.toDouble() ?? 0,
-      weekOrders: analytics['week_orders'] as int? ?? json['week_orders'] as int? ?? 0,
-      rating: (json['station']?['rating'] ?? json['rating'] as num?)?.toDouble() ?? 0,
-      totalReviews: json['station']?['total_reviews'] as int? ?? json['total_reviews'] as int? ?? 0,
+      availableDrivers: parseInt(json['active_drivers'] ?? json['available_drivers']),
+      lowStockItems: parseInt(json['low_stock_items']),
+      openIssues: parseInt(json['open_issues']),
+      weekRevenue: parseDouble(analytics['week_revenue'] ?? json['week_revenue']),
+      weekOrders: parseInt(analytics['week_orders'] ?? json['week_orders']),
+      rating: parseDouble(json['station']?['rating'] ?? json['rating']),
+      totalReviews: parseInt(json['station']?['total_reviews'] ?? json['total_reviews']),
     );
   }
 
