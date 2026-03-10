@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
+  <defs>
+    <linearGradient id="dropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D6EFD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A4FC4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0D6EFD;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0D6EFD;stop-opacity:0.05" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0D6EFD" flood-opacity="0.25"/>
+    </filter>
+    <clipPath id="dropClip">
+      <path d="M80 20 C80 20 45 60 45 90 C45 113 60 130 80 130 C100 130 115 113 115 90 C115 60 80 20 80 20 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background pill shape -->
+  <rect x="2" y="2" width="396" height="156" rx="24" ry="24" fill="white" stroke="#E8F0FE" stroke-width="2"/>
+
+  <!-- Water drop icon -->
+  <g filter="url(#shadow)">
+    <!-- Drop shape -->
+    <path d="M80 18 C80 18 43 62 43 92 C43 116 59 132 80 132 C101 132 117 116 117 92 C117 62 80 18 80 18 Z"
+          fill="url(#dropGrad)"/>
+
+    <!-- Wave inside drop -->
+    <path d="M43 98 C53 88 67 103 80 93 C93 83 107 98 117 88 L117 116 C107 126 93 111 80 121 C67 131 53 116 43 126 Z"
+          fill="white" opacity="0.2" clip-path="url(#dropClip)"/>
+
+    <!-- Shine on drop -->
+    <ellipse cx="65" cy="58" rx="6" ry="10" fill="white" opacity="0.35" transform="rotate(-20 65 58)"/>
+
+    <!-- Small ripple dot at bottom -->
+    <circle cx="80" cy="118" r="3" fill="white" opacity="0.5"/>
+  </g>
+
+  <!-- FillMe text -->
+  <text x="138" y="88" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="54" fill="#0A4FC4" letter-spacing="-1">Fill</text>
+  <text x="242" y="88" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="54" fill="#0D6EFD" letter-spacing="-1">Me</text>
+
+  <!-- Dot accent on the i -->
+  <circle cx="164" cy="40" r="5" fill="#0D6EFD"/>
+
+  <!-- Tagline -->
+  <text x="138" y="112" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="15" fill="#6C8EBF" letter-spacing="2">Clean Water. One Tap Away.</text>
+
+  <!-- Small wave decoration under tagline -->
+  <path d="M138 122 Q158 118 178 122 Q198 126 218 122 Q238 118 258 122" stroke="#0D6EFD" stroke-width="1.5" fill="none" opacity="0.3"/>
+</svg>

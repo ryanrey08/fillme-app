@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A7FFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A4FC4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dropGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D0E8FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow2">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    <clipPath id="dropClip2">
+      <path d="M100 42 C100 42 62 88 62 118 C62 142 79 162 100 162 C121 162 138 142 138 118 C138 88 100 42 100 42 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- App icon background with rounded corners -->
+  <rect x="0" y="0" width="200" height="200" rx="40" ry="40" fill="url(#bgGrad)"/>
+
+  <!-- Subtle pattern overlay -->
+  <circle cx="170" cy="30" r="60" fill="white" opacity="0.04"/>
+  <circle cx="30" cy="170" r="50" fill="white" opacity="0.04"/>
+
+  <!-- Water drop -->
+  <g filter="url(#shadow2)">
+    <path d="M100 40 C100 40 60 90 60 120 C60 144 78 164 100 164 C122 164 140 144 140 120 C140 90 100 40 100 40 Z"
+          fill="url(#dropGrad2)"/>
+
+    <!-- Wave inside drop -->
+    <path d="M60 126 C73 114 87 130 100 118 C113 106 127 122 140 110 L140 140 C127 152 113 136 100 148 C87 160 73 144 60 156 Z"
+          fill="#0D6EFD" opacity="0.15" clip-path="url(#dropClip2)"/>
+
+    <!-- Shine -->
+    <ellipse cx="84" cy="82" rx="7" ry="13" fill="white" opacity="0.5" transform="rotate(-20 84 82)"/>
+
+    <!-- Bottom highlight -->
+    <circle cx="100" cy="148" r="4" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- FM monogram inside drop -->
+  <text x="100" y="126" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="28" fill="#0A4FC4" text-anchor="middle" opacity="0.7">FM</text>
+</svg>
