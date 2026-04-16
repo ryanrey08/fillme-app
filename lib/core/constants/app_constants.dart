@@ -4,14 +4,14 @@ class AppConstants {
   static const String appVersion = '1.0.0';
   
   // API Configuration
-  static const String apiBaseUrl = 'http://192.168.71.185:8080'; // Base Laravel URL
-  static const String baseUrl = 'http://192.168.71.185:8080/api/mobile/v1';
-  // static const String baseUrl = 'http://192.168.18.105:8080/api/mobile/v1';
+  static const String apiBaseUrl = 'http://192.168.18.105:8080'; // Base Laravel URL
+  // static const String baseUrl = 'http://10.124.54.202:8080/api/mobile/v1';
+  static const String baseUrl = 'http://192.168.18.105:8080/api/mobile/v1';
   static const int connectionTimeout = 30000;
   static const int receiveTimeout = 30000;
   
   // WebSocket Configuration (Laravel Reverb)
-  static const String wsHost = '192.168.71.185';
+  static const String wsHost = '10.124.54.202';
   static const int wsPort = 6001; // Reverb WebSocket port (separate from API port)
   static const String wsAppKey = 'ff3oyophbbp8r3orqian'; // Must match REVERB_APP_KEY in Laravel .env
   static const bool wsUseTls = false; // Set to true for production (wss://)

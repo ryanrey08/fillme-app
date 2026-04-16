@@ -48,7 +48,7 @@ class _OwnerDriversScreenState extends ConsumerState<OwnerDriversScreen>
         ],
         bottom: TabBar(
           controller: _tabController,
-          labelColor: AppColors.primary,
+          labelColor: AppColors.white,
           unselectedLabelColor: AppColors.textSecondary,
           indicatorColor: AppColors.primary,
           tabs: const [

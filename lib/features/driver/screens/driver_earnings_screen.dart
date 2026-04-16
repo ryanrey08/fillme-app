@@ -62,7 +62,7 @@ class _DriverEarningsScreenState extends ConsumerState<DriverEarningsScreen>
         title: const Text('Earnings'),
         bottom: TabBar(
           controller: _tabController,
-          labelColor: AppColors.primary,
+          labelColor: AppColors.white,
           unselectedLabelColor: AppColors.textSecondary,
           indicatorColor: AppColors.primary,
           tabs: const [
